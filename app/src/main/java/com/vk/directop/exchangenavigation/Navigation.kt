@@ -2,6 +2,7 @@ package com.vk.directop.exchangenavigation
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.material.TextField
 import androidx.compose.runtime.remember
@@ -27,11 +28,11 @@ fun Navigation() {
             PopularScreen(navController = navController)
         }
         composable(
-            route = Screen.FavoriteScreen.route + "/{name}",
+            route = Screen.FavoriteScreen.route,// + "/{name}",
             arguments = listOf(
                 navArgument("name") {
                     type = NavType.StringType
-                    defaultValue = "friend"
+                    defaultValue = "my dear friend"
                     nullable = true
                 }
             )
@@ -51,7 +52,9 @@ fun PopularScreen(
     Column(
         verticalArrangement = Arrangement.Center,
         modifier = Modifier
-            .fillMaxWidth()
+            .fillMaxHeight()
+            .height(40.dp)
+            .padding(vertical = 50.dp)
             .padding(horizontal = 50.dp)
     ) {
         TextField(
@@ -59,13 +62,14 @@ fun PopularScreen(
             onValueChange = {
                 text1 = it
             },
-            modifier = Modifier.height(8.dp)
+            modifier = Modifier
+                .height(38.dp)
         )
         Spacer(modifier = Modifier.height(8.dp))
         Button(
             onClick = {
-                //navController.navigate(Screen.FavoriteScreen.route)
-                navController.navigate(Screen.FavoriteScreen.withArgs(text1))
+                navController.navigate(Screen.FavoriteScreen.route)
+                //navController.navigate(Screen.FavoriteScreen.withArgs(text1))
             },
             modifier = Modifier.align(Alignment.End)
         ) {
@@ -80,6 +84,7 @@ fun FavoriteScreen(name: String?) {
         contentAlignment = Alignment.Center,
         modifier = Modifier.fillMaxSize()
     ) {
+
         Text(text = "Hello, $name")
     }
 }
