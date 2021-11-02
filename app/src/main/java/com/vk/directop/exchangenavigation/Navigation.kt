@@ -13,11 +13,15 @@ import com.vk.directop.exchangenavigation.presentation.PopularScreen
 //navArgument
 @Composable
 fun Navigation() {
+    val greeting = "my dear friend"
     val navController = rememberNavController()
     NavHost(navController = navController, startDestination = Screen.PopularScreen.route) {
 
         composable(route = Screen.PopularScreen.route) {
             PopularScreen(navController = navController)
+        }
+        composable(route = Screen.FavoriteScreen.route) {
+            FavoriteScreen(navController = navController, greeting)
         }
         composable(route = Screen.FavoriteScreen.route + "/{name}",
             arguments = listOf(
@@ -28,7 +32,7 @@ fun Navigation() {
                 }
             )
         ) { entry ->
-            FavoriteScreen(name = entry.arguments?.getString("name"))
+            FavoriteScreen(navController, name = entry.arguments?.getString("name"))
         }
     }
 }

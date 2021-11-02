@@ -38,7 +38,9 @@ fun PopularScreen(
         Spacer(modifier = Modifier.height(18.dp))
         Button(
             onClick = {
-                //navController.navigate(Screen.FavoriteScreen.route)
+                if(text.isEmpty())
+                navController.navigate(Screen.FavoriteScreen.route)
+                else
                 navController.navigate(Screen.FavoriteScreen.withArgs(text))
             },
             modifier = Modifier.align(Alignment.End)
