@@ -8,8 +8,11 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.vk.directop.exchangenavigation.presentation.CardImageScreen
 import com.vk.directop.exchangenavigation.presentation.FavoriteScreen
 import com.vk.directop.exchangenavigation.presentation.PopularScreen
+import com.vk.directop.exchangenavigation.presentation.util.Screen
+
 //navArgument
 @Composable
 fun Navigation() {
@@ -33,6 +36,9 @@ fun Navigation() {
             )
         ) { entry ->
             FavoriteScreen(navController, name = entry.arguments?.getString("name"))
+        }
+        composable(route = Screen.CardImageScreen.route) {
+            CardImageScreen(navController = navController)
         }
     }
 }
