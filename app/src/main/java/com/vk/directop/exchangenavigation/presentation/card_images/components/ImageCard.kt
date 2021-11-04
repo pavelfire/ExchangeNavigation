@@ -25,11 +25,14 @@ fun ImageCard(
     modifier: Modifier = Modifier
 ) {
     Card(
-        modifier = modifier.fillMaxWidth(),
+        modifier = modifier
+            .fillMaxWidth()
+            .padding(8.dp),
         shape = RoundedCornerShape(15.dp),
         elevation = 5.dp
     ){
-        Box(modifier = Modifier.height(200.dp)
+        Box(modifier = Modifier
+            .height(200.dp)
         ){
             Image(
                 painter = painter,
