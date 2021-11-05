@@ -58,5 +58,16 @@ fun PopularScreen(
         ) {
             Text(text = "To Card Image")
         }
+        Spacer(modifier = Modifier.height(18.dp))
+        Button(
+            onClick = {
+                navController.navigate(Screen.InputFieldsScreen.route)
+            },
+            modifier = Modifier
+                .align(Alignment.Start)
+                .padding(10.dp)
+        ) {
+            Text(text = "To Input Fields")
+        }
     }
 }
