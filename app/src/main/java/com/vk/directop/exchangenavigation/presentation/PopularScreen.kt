@@ -69,5 +69,16 @@ fun PopularScreen(
         ) {
             Text(text = "To Input Fields")
         }
+        Spacer(modifier = Modifier.height(18.dp))
+        Button(
+            onClick = {
+                navController.navigate(Screen.DesignScreen.route)
+            },
+            modifier = Modifier
+                .align(Alignment.Start)
+                .padding(10.dp)
+        ) {
+            Text(text = "Design Screen")
+        }
     }
 }

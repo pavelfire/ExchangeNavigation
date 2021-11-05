@@ -8,10 +8,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.vk.directop.exchangenavigation.presentation.InputFieldsScreen
-import com.vk.directop.exchangenavigation.presentation.CardImageScreen
-import com.vk.directop.exchangenavigation.presentation.FavoriteScreen
-import com.vk.directop.exchangenavigation.presentation.PopularScreen
+import com.vk.directop.exchangenavigation.presentation.*
 import com.vk.directop.exchangenavigation.presentation.util.Screen
 
 
@@ -44,6 +41,9 @@ fun Navigation() {
         }
         composable(route = Screen.InputFieldsScreen.route) {
             InputFieldsScreen()
+        }
+        composable(route = Screen.DesignScreen.route) {
+            DesignScreen()
         }
     }
 }
